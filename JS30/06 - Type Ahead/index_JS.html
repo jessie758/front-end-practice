@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Type Ahead 👀</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+
+  <body>
+    <form class="search-form">
+      <input type="text" class="search" placeholder="City or State" />
+      <ul class="suggestions"></ul>
+    </form>
+
+    <script>
+      /*
+        目標: 在搜尋框輸入文字，查詢城市或州的人口
+        1. 取得搜尋框文字 (註冊監聽器)
+        2. 篩選城市清單 (取得關鍵字->處理字串->篩選清單)
+        3. 渲染在畫面上 (DOM操作)
+        4. 實時搜尋 (邊輸入文字邊跳出建議)
+        5. 符合的關鍵字highlight套色 (找到關鍵字->加上class名稱)
+      */
+
+      // 取得資料
+
+      const url =
+        'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+      const cities = [];
+      let currentCityList = cities;
+
+      fetch(url)
+        .then((response) => {
+          return response.json(); // 轉成JSON格式
+        })
+        .then((jsonData) => {
+          return cities.push(...jsonData);
+        })
+        .catch((error) => {
+          return console.log(error);
+        });
+
+      // 篩選清單、渲染清單
+
+      function filterCityList(keyword) {
+        currentCityList = cities.filter((city) => {
+          const cityInfo = `${city.city} ${city.state}`.toLowerCase();
+          return cityInfo.includes(keyword);
+        });
+      }
+
+      function createCityInfoHTML(keyword, city) {
+        const cityInfoStr = `${city.city}, ${city.state}`;
+        const cityInfoChars = [];
+        let startIndex = 0;
+        let targetIndex = 0;
+
+        while (cityInfoStr.toLowerCase().includes(keyword, startIndex)) {
+          targetIndex = cityInfoStr.toLowerCase().indexOf(keyword, startIndex);
+          cityInfoChars.push(
+            ...cityInfoStr.slice(startIndex, targetIndex),
+            '<span class="highlight">',
+            ...cityInfoStr.slice(targetIndex, targetIndex + keyword.length),
+            '</span>'
+          );
+          startIndex = targetIndex + keyword.length;
+        }
+
+        cityInfoChars.push(...cityInfoStr.slice(startIndex));
+        return cityInfoChars.join('');
+      }
+
+      function createCityPopuHTML(city) {
+        const cityPopuStr = city.population;
+        const cityPopuChars = [];
+        let count = 0;
+
+        for (let i = cityPopuStr.length - 1; i >= 0; i--) {
+          cityPopuChars.unshift(cityPopuStr[i]);
+          count++;
+          if (count % 3 === 0 && i !== 0) cityPopuChars.unshift(',');
+        }
+
+        return cityPopuChars.join('');
+      }
+
+      function displaySuggestions(keyword) {
+        let HTML = '';
+
+        currentCityList.forEach((city) => {
+          const cityInfoHTML = createCityInfoHTML(keyword, city);
+          const cityPopuHTML = createCityPopuHTML(city);
+          HTML += `
+            <li>
+              <div class="info">${cityInfoHTML}</div>
+              <div class="population">${cityPopuHTML}</div>
+            </li>
+          `;
+        });
+
+        suggestionList.innerHTML = HTML;
+      }
+
+      const suggestionList = document.querySelector('.suggestions');
+      const searchInput = document.querySelector('.search');
+      searchInput.addEventListener('input', (e) => {
+        const keyword = e.target.value?.trim().toLowerCase();
+        filterCityList(keyword);
+        displaySuggestions(keyword);
+      });
+    </script>
+  </body>
+</html>

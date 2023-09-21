@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Array Cardio 💪</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+
+  <body>
+
+    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+
+    <script>
+      // ## Array Cardio Day 1
+      // Get your shorts on - this is an array workout!
+
+      // ## Data
+
+      const inventors = [
+        { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+        { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+        { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+        { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+        { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+        { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+        { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+        { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+        { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+        { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+        { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+        { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+      ];
+
+      const people = [
+        'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
+        'Belloc, Hilaire', 'Begin, Menachem', 'Bellow, Saul', 'Benchley, Robert', 'Blair, Robert', 'Benenson, Peter', 'Benjamin, Walter', 'Berlin, Irving',
+        'Benn, Tony', 'Benson, Leana', 'Bent, Silas', 'Berle, Milton', 'Berry, Halle', 'Biko, Steve', 'Beck, Glenn', 'Bergman, Ingmar', 'Black, Elk', 'Berio, Luciano',
+        'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
+        'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
+      ];
+
+      // ## Exercise
+      
+      // Array.prototype.filter()
+      // 1. Filter the list of inventors for those who were born in the 1500's
+
+      const born_in_1500s = inventors.filter((inventer) => {
+        return 1500 <= inventer.year && inventer.year <= 1599;
+      });
+      console.log(`1. Filter the list of inventors for those who were born in the 1500's`);
+      console.log(born_in_1500s);
+
+      // Array.prototype.map()
+      // 2. Give us an array of the inventors first and last names
+
+      const names = inventors.map((inventer) => {
+        return `${inventer.first} ${inventer.last}`;
+      })
+      console.log('2. Give us an array of the inventors first and last names');
+      console.log(names);
+
+      // Array.prototype.sort()
+      // 3. Sort the inventors by birthdate, oldest to youngest
+
+      const copiedInventors_sortByBirth = JSON.parse(JSON.stringify(inventors));
+      copiedInventors_sortByBirth.sort((a, b) => {
+        return a.year - b.year
+      });
+      console.log('3. Sort the inventors by birthdate, oldest to youngest');
+      console.log(copiedInventors_sortByBirth);
+
+      // Array.prototype.reduce()
+      // 4. How many years did all the inventors live all together?
+
+      const total_years_lived = inventors.reduce((accu, curr) => {
+        return accu + (curr.passed - curr.year);
+      }, 0);
+      console.log('4. How many years did all the inventors live all together?');
+      console.log(total_years_lived);
+
+      // Array.prototype.sort()
+      // 5. Sort the inventors by years lived
+
+      const copiedInventors_sortByYearsLived = JSON.parse(JSON.stringify(inventors));
+      copiedInventors_sortByYearsLived.sort((a, b) => {
+        return (a.passed - a.year) - (b.passed - b.year);
+      })
+      console.log('5. Sort the inventors by years lived');
+      console.log(copiedInventors_sortByYearsLived);
+
+      // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+      // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+      /*
+        需在維基百科網頁上才能執行以下程式碼
+        const list = document.querySelectorAll('.mw-category-group a');
+        const locations = [...list].map(item => item.innerText);
+        const locations_contain_de = locations.filter(location => location.includes('de'));
+        console.log(locations_contain_de);
+      */
+
+      // Sort Exercise
+      // 7. Sort the people alphabetically by last name
+
+      people.sort((p1, p2) => {
+        const p1_last_name = p1.split(' ')[1];
+        const p2_last_name = p2.split(' ')[1];
+        return p1_last_name.charCodeAt(0) - p2_last_name.charCodeAt(0);
+      })
+      console.log('7. Sort the people alphabetically by last name');
+      console.log(people);
+
+      // Reduce Exercise
+      // 8. Sum up the instances of each of these
+      
+      const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+      /*
+        法一
+        const result1 = {};
+        data.forEach((item) => {
+          if (!result1[item]) result1[item] = 0;
+          result1[item]++;
+        });
+        console.log('8. Sum up the instances of each of these');
+        console.log(result1);
+      */
+
+      /* 法二 */
+      const result2 = data.reduce((accuObj, currItem) => {
+        if (!accuObj[currItem]) accuObj[currItem] = 0;
+        accuObj[currItem]++; 
+        return accuObj;
+      }, {});
+      console.log('8. Sum up the instances of each of these');
+      console.log(result2);
+
+    </script>
+  </body>
+</html>

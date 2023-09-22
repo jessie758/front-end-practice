@@ -1,0 +1,174 @@
+/********** CSS Reset **********/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+
+/********** Basic Setting **********/
+
+:root {
+  --cyan: hsl(180, 62%, 55%);
+  --red: hsl(0, 78%, 62%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  --dark-blue: hsl(234, 12%, 34%);
+  --grayish-blue: hsl(229, 6%, 66%);
+  --light-gray: hsl(0, 0%, 98%);
+}
+
+html {
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light-gray);
+  color: var(--dark-blue);
+}
+
+/********** Mobile **********/
+
+.container {
+  width: 80%;
+  margin: 4.5rem auto;
+}
+
+/* description */
+
+.description {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.description .title {
+  font-size: 1.6rem;
+  font-weight: 200;
+}
+
+.description .title.bold {
+  font-weight: 600;
+}
+
+.description .text {
+  margin-top: 0.7rem;
+  color: var(--grayish-blue);
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+/* cards */
+
+.card {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 7px 10px 0 #eee;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card .title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.card .text {
+  margin-top: 1rem;
+  color: var(--grayish-blue);
+  line-height: 1.5rem;
+}
+
+.card .icon {
+  width: 64px;
+  height: 64px;
+  margin-top: 3rem;
+  margin-left: auto;  /* 沒有 justify-self */
+}
+
+.card .color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4.5px;
+}
+
+.card .color.cyan {
+  background-color: var(--cyan);
+}
+
+.card .color.red {
+  background-color: var(--red);
+}
+
+.card .color.orange {
+  background-color: var(--orange);
+}
+
+.card .color.blue {
+  background-color: var(--blue);
+}
+
+/* footer */
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  padding: 1rem;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/********** RWD **********/
+
+@media screen and (min-width: 600px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      ".   g2  ."
+      "g1  g2  g4"
+      "g1  g3  g4"
+      ".   g3  .";
+    gap: 1rem;
+  }
+
+  .card.supervisor {
+    grid-area: g1;
+  }
+  .card.team-builder {
+    grid-area: g2;
+  }
+  .card.karma {
+    grid-area: g3;
+  }
+  .card.calculator {
+    grid-area: g4;
+  }
+
+  .description .title {
+    font-size: 2rem;
+  }
+}

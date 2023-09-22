@@ -1,0 +1,7 @@
+【嘗試】
+
+開發步驟第５點：
+
+5. 符合的關鍵字highlight套色
+   (原方法: 使用while與index找到關鍵字->加上class名稱)
+   (新方法: 使用regular expression找到關鍵字)

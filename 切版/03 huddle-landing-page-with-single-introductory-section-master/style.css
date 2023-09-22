@@ -1,0 +1,211 @@
+/*
+  button 是 inline-level element
+*/
+
+/********** CSS Reset **********/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: inherit;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/********** Basic Setting **********/
+
+:root {
+  --violet: hsl(257, 40%, 49%);
+  --soft-magenta: hsl(300, 69%, 71%);
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+button {
+  padding: 0.8rem 4.5rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  color: var(--violet);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/********** Mobile **********/
+
+/* intro */
+
+.intro {
+  background-image: url('./images/bg-mobile.svg'),
+    linear-gradient(to bottom, var(--violet), var(--violet));
+  background-size: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* logo */
+
+.logo {
+  width: 40%;
+}
+
+/* illustration */
+
+.illustration-img {
+  margin-top: 4rem;
+}
+
+/* description */
+
+.description {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.description .title {
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.description .text {
+  margin-top: 1rem;
+  line-height: 1.4;
+}
+
+.description .text br {
+  display: none;
+}
+
+.description .register {
+  margin: 0 auto;
+  margin-top: 1.5rem;
+}
+
+/* social media */
+
+.social-media {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.social-media a {
+  width: 30px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* footer */
+
+.attribution {
+  padding: 1rem;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--violet);
+  text-decoration: underline var(--violet);
+}
+
+/********** Desktop **********/
+
+@media screen and (min-width: 1000px) {
+  .intro {
+    background-image: url('./images/bg-desktop.svg'),
+      linear-gradient(to bottom, var(--violet), var(--violet));
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .logo {
+    width: 180px;
+  }
+
+  .main-content {
+    display: flex;
+  }
+
+  .illustration-img {
+    width: 60%;
+  }
+
+  .illustration {
+    width: 95%;
+  }
+
+  .description {
+    width: 40%;
+    padding-top: 3rem;
+    padding-left: 1rem;
+    text-align: start;
+  }
+
+  .description .title {
+    font-size: 2rem;
+  }
+
+  .description .text {
+    color: lightgray;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .description .register {
+    padding: 1rem 3.5rem;
+    border-radius: 25px;
+    box-shadow: 0 3px 7px 1px rgba(0, 0, 0, 0.4);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .social-media {
+    display: flex;
+    justify-content: end;
+  }
+
+  .description .register:hover {
+    background-color: var(--soft-magenta);
+    color: white;
+  }
+  
+  .social-media a:hover {
+    border: 1px solid var(--soft-magenta);
+    color: var(--soft-magenta);
+  }
+}

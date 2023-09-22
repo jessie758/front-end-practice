@@ -1,0 +1,259 @@
+/********** CSS Reset **********/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+/********** Basic Setting **********/
+
+:root {
+  --soft-red: hsl(0, 93%, 68%);
+  --desaturated-red: hsl(0, 36%, 70%);
+  --desaturated-light-red: hsl(0, 36%, 80%);
+  --dark-grayish-red: hsl(0, 6%, 24%);
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/********** Mobile **********/
+
+/* banner */
+
+.banner {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  color: var(--desaturated-red);
+}
+
+/* logo */
+
+.logo .logo-img {
+  width: 120px;
+}
+
+/* photo */
+
+.banner-photo {
+  margin-top: 2rem;
+  width: 100vw;
+  height: 66vw;
+  background-image: url(./images/hero-mobile.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* .banner-photo .hero-photo {
+  width: 100%;
+} */
+
+/* description */
+
+.description {
+  margin-top: 3.5rem;
+  text-align: center;
+}
+
+.description .title {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  line-height: 1.2;
+}
+
+.description .text {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.description .text-thinner {
+  font-weight: 300;
+}
+
+.description .text-bolder {
+  font-weight: 600;
+}
+
+.description .dark-grayish-red {
+  color: var(--dark-grayish-red);
+}
+
+/* subscription */
+
+.subscription {
+  margin-top: 2rem;
+}
+
+.email-form .email {
+  position: relative;
+}
+
+.email-form .email-input {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  border: 1.3px solid var(--desaturated-light-red);
+  border-radius: 2rem;
+  background-color: transparent;
+}
+
+.email-form .email-input ~ .invalid-icon,
+.email-form .email-input ~ .invalid-msg {
+  display: none;
+}
+
+.email-form .email-input::placeholder {
+  color: var(--desaturated-light-red);
+  font-size: 0.95rem;
+}
+
+.email-form .email-input:focus {
+  outline: none;
+}
+
+.email-form.validated .email-input:invalid {
+  border: 2px solid var(--soft-red);
+}
+
+.email-form.validated .email-input:invalid ~ .invalid-icon {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 24%;
+  transform: translate(0, -50%);
+}
+
+.email-form.validated .email-input:invalid ~ .invalid-msg {
+  display: block;
+  position: absolute;
+  left: 1.5rem;
+  bottom: -1.5rem;
+  color: var(--soft-red);
+  font-size: 0.8rem;
+}
+
+.email-form .submit-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1.6rem;
+  border-radius: 2rem;
+  box-shadow: 0 5px 12px 0 hsl(0, 80%, 86%);
+  background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+
+/* footer */
+
+.attribution {
+  padding: 1rem;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/********** Desktop **********/
+
+@media screen and (min-width: 1000px) {
+  /* container */
+  .container {
+    width: 55%;
+  }
+
+  /* banner */
+
+  .banner {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas:
+      '.  g2'
+      '.  g2'
+      '.  g2'
+      '.  g2';
+    padding: 0;
+    background: linear-gradient(135deg, hsl(0, 100%, 98%), hsl(0, 0%, 100%));
+  }
+
+  /* photo */
+
+  .banner-photo {
+    grid-area: g2;
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./images/hero-desktop.jpg');
+  }
+
+  /* logo */
+
+  .logo {
+    margin-top: 3.5rem;
+  }
+
+  .logo .logo-img {
+    width: 130px;
+  }
+
+  /* description */
+
+  .description {
+    margin-top: 6rem;
+    text-align: start;
+  }
+
+  .description .title {
+    font-size: 3rem;
+  }
+
+  .description .text {
+    margin-top: 1.2rem;
+    line-height: 1.5;
+  }
+
+  /* subscription */
+
+  .subscription {
+    margin-top: 2.5rem;
+    margin-bottom: 6rem;
+  }
+
+  .subscription .submit-btn {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .subscription .submit-btn:hover {
+    background: linear-gradient(135deg, hsl(0, 100%, 93%), hsl(0, 74%, 85%));
+    box-shadow: 0 10px 20px 0 hsl(0, 50%, 80%);
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section class="banner">
+      <div class="container">
+        <div class="logo">
+          <img src="./images/logo.svg" alt="logo" class="logo-img" />
+        </div>
+      </div>
+      <div class="banner-photo"></div>
+      <div class="container">
+        <div class="description">
+          <div class="title">
+            <span class="text-thinner">We're</span><br />
+            <span class="dark-grayish-red text-bolder">coming<br />soon</span>
+          </div>
+          <div class="text">
+            Hello fellow shoppers! We're currently building our new fashion
+            store. Add your email below to stay up-to-date with announcements
+            and our launch deals.
+          </div>
+        </div>
+        <div class="subscription">
+          <form action="#" class="email-form" novalidate>
+            <div class="email">
+              <input
+                type="text"
+                name="email"
+                id="email"
+                class="email-input"
+                placeholder="Email Address"
+                pattern="^([\w\d]+)@(\w+)\.(\w{2,4})$"
+                required
+              />
+              <img
+                src="./images/icon-error.svg"
+                alt="invalid icon"
+                class="invalid-icon"
+              />
+              <p class="invalid-msg">Please provide a valid email</p>
+              <button type="submit" class="submit-btn">
+                <img
+                  src="./images/icon-arrow.svg"
+                  alt="submit image"
+                  class="submit-img"
+                />
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </p>
+    </footer>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

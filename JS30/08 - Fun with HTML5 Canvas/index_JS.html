@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Canvas</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="draw" width="800" height="800"></canvas>
+
+    <script>
+      /**************************************************
+
+        開發流程：
+
+        1. 使用JS操作Canvas
+            - 抓取canvas元素
+            - 創建context渲染環境
+        
+        2. 設定畫布大小
+            - 長寬占滿整個螢幕
+        
+        3. 設定畫筆參數
+            - 畫筆樣式
+            - 寬度
+            - 顏色
+        
+        4. 監聽事件
+            4-1. 螢幕畫面大小
+                  - 當螢幕畫面大小改變時，調整畫布大小
+            4-2. 滑鼠
+                  - 滑鼠點擊開始繪圖
+                  - 滑鼠移動畫出線條
+                  - 滑鼠放開結束繪圖
+                  - 滑鼠離開畫布時也要結束繪圖
+        
+        5. 讓畫筆寬度＆顏色動態變化
+            - 寬度從1到100遞增，再從100到1遞減
+            - 色相在0°到360°之間循環
+      
+      **************************************************/
+
+      // DOM元素
+      const canvas = document.querySelector('#draw');
+      const ctx = canvas.getContext('2d'); // 指定為2D或3D的渲染環境
+
+      // 畫筆參數
+      let isDrawing = false;
+      let [lastX, lastY] = [0, 0];
+      let cap = 'butt';
+      let join = 'miter';
+      let increment = 1;
+      let width = 1;
+      let hue = 0;
+
+      function initializeCanvas() {
+        // 初始化畫布大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 初始化畫筆設定
+        ctx.lineCap = cap;
+        ctx.lineJoin = join;
+        ctx.lineWidth = width;
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+      }
+
+      function draw(e, isDrawing) {
+        if (!isDrawing) return; // 判斷是否為正在繪圖的狀態
+
+        // 畫筆設定
+        ctx.lineCap = cap;
+        ctx.lineJoin = join;
+        ctx.lineWidth = width;
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+
+        // 畫筆定位
+        const newX = e.offsetX;
+        const newY = e.offsetY;
+
+        // 繪圖
+        ctx.beginPath(); // 宣告路徑or重置路徑
+        ctx.moveTo(lastX, lastY); // 線條的起點(移動到起始點)
+        ctx.lineTo(newX, newY); // 線條的終點(畫出線條連接到其他點)
+        ctx.stroke(); // 開始繪圖
+
+        // 調整畫筆設定
+        [lastX, lastY] = [newX, newY];
+        width += increment;
+        if (width >= 100 || width <= 1) increment *= -1;
+        hue++;
+        if (hue >= 360) hue = 0;
+      }
+
+      canvas.addEventListener('mousedown', (e) => {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      });
+      canvas.addEventListener('mousemove', (e) => draw(e, isDrawing));
+      canvas.addEventListener('mouseup', () => (isDrawing = false));
+      canvas.addEventListener('mouseout', () => (isDrawing = false));
+      window.addEventListener('resize', initializeCanvas);
+      initializeCanvas();
+    </script>
+
+    <!--
+
+      法二：
+      監聽事件的另一種方式
+
+      <script>
+        // 不再需要 isDrawing 變數
+        function draw(e) {
+          ctx.lineCap = cap;
+          ctx.lineJoin = join;
+          ctx.lineWidth = width;
+          ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+  
+          const newX = e.offsetX;
+          const newY = e.offsetY;
+  
+          ctx.beginPath();
+          ctx.moveTo(lastX, lastY);
+          ctx.lineTo(newX, newY);
+          ctx.stroke();
+  
+          [lastX, lastY] = [newX, newY];
+          width += increment;
+          if (width >= 100 || width <= 1) increment *= -1;
+          hue++;
+          if (hue >= 360) hue = 0;
+        }
+  
+        // 監聽事件
+        canvas.addEventListener('mousedown', (e) => {
+          isDrawing = true;
+          [lastX, lastY] = [e.offsetX, e.offsetY];
+          canvas.addEventListener('mousemove', draw);
+        });
+        canvas.addEventListener('mouseup', () => {
+          canvas.removeEventListener('mousemove', draw);
+        });
+        canvas.addEventListener('mouseout', () => {
+          canvas.removeEventListener('mousemove', draw);
+        });
+        window.addEventListener('resize', initializeCanvas);
+        initializeCanvas();
+      </script>
+      
+    -->
+  </body>
+</html>

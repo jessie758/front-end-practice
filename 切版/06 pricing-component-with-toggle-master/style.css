@@ -1,0 +1,266 @@
+/*
+  要使用 margin-top 或 flex/gap 來調整間距？
+*/
+
+/********** CSS Reset **********/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+/********** Basic Setting **********/
+
+:root {
+  --very-light-grayish-blue: hsl(240, 78%, 98%);
+  --lighter-grayish-blue: hsl(234, 10%, 85%);
+  --light-grayish-blue: hsl(234, 14%, 74%);
+  --grayish-blue: hsl(233, 13%, 49%);
+  --dark-grayish-blue: hsl(232, 13%, 33%);
+}
+
+body {
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/********** Mobile **********/
+
+/* pricing */
+
+.pricing {
+  width: 100%;
+  padding: 4rem 0;
+  background: url(./images/bg-top.svg) var(--very-light-grayish-blue);
+  background-size: 40% 20%;
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+/* title */
+
+.pricing .title {
+  color: var(--grayish-blue);
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* payment periods */
+
+.billings {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.billings .billing {
+  color: var(--light-grayish-blue);
+  font-size: 0.9rem;
+}
+
+.billings .toggler {
+  cursor: pointer;
+  width: 3.5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  position: relative;
+}
+
+.billings .toggler .circle {
+  /* content: ''; */
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  left: 0.3rem;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: transform 0.3s;
+}
+
+.billings .toggler:hover {
+  background: hsl(236, 72%, 79%);
+}
+
+/* plans */
+
+.plans {
+  margin-top: 3rem;
+}
+
+.plans .plan {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 5px 0 #eee;
+  background: white;
+  color: var(--grayish-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.plans .plan .name {
+  font-size: 1.1rem;
+}
+
+.plans .plan .price {
+  border-bottom: 1px solid var(--lighter-grayish-blue);
+  color: var(--dark-grayish-blue);
+  font-size: 4rem;
+  line-height: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.plans .plan .price .dollar-sign {
+  font-size: 2.5rem;
+}
+
+.plans .plan .item {
+  border-bottom: 1px solid var(--lighter-grayish-blue);
+  line-height: 3;
+}
+
+.plans .plan .btn {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.plans .plan.highlight {
+  background: linear-gradient(135deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  color: white;
+}
+
+.plans .plan.highlight .price {
+  color: white;
+}
+
+.plans .plan.highlight .btn {
+  background: white;
+  color: hsl(237, 63%, 64%);
+}
+
+.plans .plan .btn:hover {
+  border: 1.5px solid hsl(237, 63%, 64%);
+  background: transparent;
+  color: hsl(237, 63%, 64%);
+}
+
+.plans .plan.highlight .btn:hover {
+  border: 1.5px solid white;
+  background: transparent;
+  color: white;
+}
+
+/* footer */
+
+.attribution {
+  padding: 1rem;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/********** Desktop **********/
+
+@media screen and (min-width: 800px) {
+  .container {
+    width: 75%;
+  }
+
+  /* pricing */
+
+  .pricing {
+    background: url(./images/bg-top.svg), url(./images/bg-bottom.svg),
+      var(--very-light-grayish-blue);
+    background-position: top right, bottom left;
+    background-size: 25% 80%, 25% 35%;
+    background-repeat: no-repeat;
+  }
+
+  .plans {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: 1rem 1fr 1rem 1fr 1rem 1fr 1rem;
+    grid-template-areas: 'gap1 plan1 gap12 plan2 gap23 plan3 gap3';
+    align-items: center;
+  }
+
+  .plans .plan {
+    margin-top: 0;
+    padding: 2rem;
+    box-shadow: 0 7px 10px 5px #eee;
+  }
+
+  .plans .plan.one {
+    grid-column: gap1 / gap12;
+    grid-row: 1 / 1;
+  }
+
+  .plans .plan.two {
+    grid-column: gap12 / gap23;
+    grid-row: 1 / 1;
+  }
+
+  .plans .plan.three {
+    grid-column: gap23 / gap3;
+    grid-row: 1 / 1;
+  }
+
+  .plans .plan .btn {
+    font-size: 0.7rem;
+  }
+
+  .plans .plan.highlight {
+    padding: 3rem 2rem;
+    z-index: 999;
+    /* transform: scale(1.1); */
+  }
+}
+
+/*
+
+  問題：
+  1. highlight的那個方案，不是用scale()放大，所以不能用flex排版
+  2. 偽元素不存在於DOM tree，無法進行DOM操作
+  
+  解法：
+  1. position絕對定位、translate()平移、grid網格重疊
+  2. toggler的circle改用div，使用clientWidth或getComputedStyle取得元素寬度
+
+*/

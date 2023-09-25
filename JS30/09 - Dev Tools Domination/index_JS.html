@@ -13,7 +13,7 @@
       // 【 事件除錯 】
 
       // 打開devtools，在Elements頁籤對有註冊事件的元素按滑鼠右鍵
-      // 選擇「Break on... (中斷點)」→「attribute modifications (屬性修正)」
+      // 選擇「Break on... (中斷點)」→「attribute modifications (屬性修正)」來監聽屬性的改變
       // 在網頁上觸發事件，會自動跳轉到Sources頁籤並設置好中斷點
       function makeGreen() {
         const p = document.querySelector('p');
@@ -21,54 +21,58 @@
         p.style.fontSize = '50px';
       }
 
+
       // 【 Console 】
 
-      // 一、日誌類
+      // 一、純日誌
+
+      console.log('【 Console 主控台小技巧 】');
+      console.log('\n', '\n', '一、純日誌')
 
       // 1-1. Log
-      console.log('1-1. console.log()');
+      console.log('\n', '1-1. console.log()');
       console.log('debug'); /* Regular */
       console.log('now debugging: %s', 'DOM element <p>'); /* Interpolated */
       console.log('%cThis is red text', 'color: red'); /* Styled */
 
       // 1-2. Warning
-      console.log('1-2. console.warn()');
+      console.log('\n', '1-2. console.warn()');
       console.warn('This is a "Warning"');
 
       // 1-3. Error
-      console.log('1-3. console.error()');
+      console.log('\n', '1-3. console.error()');
       console.error('This is an "Error"');
 
       // 1-4. Info
-      console.log('1-4. console.info()');
+      console.log('\n', '1-4. console.info()');
       console.info('This is an "Info"');
 
       // 1-5. Viewing DOM Elements
-      console.log('1-5. console.dir()');
+      console.log('\n', '1-5. console.dir()');
       const p = document.querySelector('p');
       console.log('console.log(p):');
       console.log(p); /* 印出元素本身 */
       console.dir('console.dir(p):');
       console.dir(p); /* 印出元素的屬性與方法 */
 
-      // 二、功能類
+      // 二、功能性
+
+      console.log('\n', '\n', '二、功能性')
 
       // 2-1. Testing
-      console.log('2-1. console.assert()');
+      console.log('\n', '2-1. console.assert()');
       console.assert(1 === 1, 'This is "Assertion"'); /* true的情況 */
       console.assert(1 === 2, 'This is "Assertion"'); /* false的情況 */
 
       // 2-2. Grouping
-      console.log('2-2. console.group()、console.groupEnd()');
+      console.log('\n', '2-2. console.group()、console.groupEnd()');
       const dogs = [
         { name: 'Snickers', age: 2 },
         { name: 'Hugo', age: 8 },
       ];
       dogs.forEach((dog) => {
         // console.group('也可以印出巢狀group'); /* 不自動collapsed */
-        console.groupCollapsed(
-          `${dog.name}`
-        ); /* 傳入的參數會成為group的label */
+        console.groupCollapsed(`${dog.name}`);  /* 傳入的參數會成為group的label */
         console.log(`name: ${dog.name}`);
         console.log(`age: ${dog.age}`);
         console.groupEnd();
@@ -76,11 +80,11 @@
       });
 
       // 2-3. Table
-      console.log('2-3. console.table()');
+      console.log('\n', '2-3. console.table()');
       console.table(dogs);
 
       // 2-4. Counting
-      console.log('2-4. console.count()');
+      console.log('\n', '2-4. console.count()');
       console.count('A');
       console.count('A');
       console.count('B');
@@ -88,7 +92,7 @@
       console.count('B');
 
       // 2-5. Timing
-      console.log('2-5. console.time()、console.timeEnd()');
+      console.log('\n', '2-5. console.time()、console.timeEnd()');
       console.time('timing: fetching data');
       fetch('https://api.github.com/users/wesbos')
         .then((data) => data.json())

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hold Shift to Check Multiple Checkboxes</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+
+  <body>
+    <!--
+      題目說明：
+      當勾選其中一個項目後，按下shift，再勾選另一個項目，
+      則在兩個被選取的項目之間的所有項目皆會被勾選。
+    -->
+
+    <div class="inbox">
+      <div class="item">
+        <input type="checkbox" />
+        <p>This is an inbox layout.</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Check one item</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Hold down your Shift key</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Check a lower item</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Everything in between should also be set to checked</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Try to do it without any libraries</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Just regular JavaScript</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Good Luck!</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Don't forget to tweet your result!</p>
+      </div>
+    </div>
+
+    <style>
+      html {
+        font-family: sans-serif;
+        background: #ffc600;
+      }
+
+      .inbox {
+        max-width: 400px;
+        margin: 50px auto;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .item {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #f1f1f1;
+      }
+
+      .item:last-child {
+        border-bottom: 0;
+      }
+
+      input:checked + p {
+        background: #f9f9f9;
+        text-decoration: line-through;
+      }
+
+      input[type='checkbox'] {
+        margin: 20px;
+      }
+
+      p {
+        margin: 0;
+        padding: 20px;
+        transition: background 0.2s;
+        flex: 1;
+        font-family: 'helvetica neue';
+        font-size: 20px;
+        font-weight: 200;
+        border-left: 1px solid #d1e2ff;
+      }
+    </style>
+
+    <!--
+
+      目標：
+      偵測shift鍵＆被選取的兩個項目
+      實現一次勾選多個項目的效果
+
+      開發流程：
+      1. 先抓取所有checkbox元素
+      2. 儲存被選取的第一個項目
+      3. 偵測shift鍵
+      4. 當選取第二個"未勾選的"項目時，將兩者之間的所有項目勾選起來
+      5. 將當前被選取的項目更新為第二個選取的項目
+
+      其他：
+      shift鍵可直接使用e.shiftKey來判斷（回傳布林值）
+
+    -->
+
+    <!-- 法一 -->
+    <script>
+      const checkboxes = [
+        ...document.querySelectorAll('.inbox input[type="checkbox"]'),
+      ];
+      let firstIndexSelected = 0;
+      let shiftPressed = false;
+
+      function checkCheckbox(secondIndexSelected) {
+        const [startIndex, endIndex] =
+          firstIndexSelected > secondIndexSelected
+            ? [secondIndexSelected, firstIndexSelected]
+            : [firstIndexSelected, secondIndexSelected];
+        for (let i = startIndex; i <= endIndex; i++) {
+          if (!checkboxes[i]['checked']) checkboxes[i]['checked'] = true;
+        }
+      }
+
+      function changeCheckboxSelected(secondIndexSelected) {
+        firstIndexSelected = secondIndexSelected;
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Shift') shiftPressed = true;
+      });
+
+      document.addEventListener('keyup', (e) => {
+        shiftPressed = false;
+      });
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('click', (e) => {
+          const secondIndexSelected = checkboxes.indexOf(e.target);
+          // 選取checkbox後才會判斷是否為未勾選狀態
+          if (!e.target['checked']) {
+            changeCheckboxSelected(secondIndexSelected);
+          } else {
+            if (shiftPressed) checkCheckbox(secondIndexSelected);
+            changeCheckboxSelected(secondIndexSelected);
+          }
+        });
+      });
+    </script>
+
+    <!-- 法二（e.shiftKey）
+
+    <script>
+      const checkboxes = [
+        ...document.querySelectorAll('.inbox input[type="checkbox"]'),
+      ];
+      let firstIndexSelected = 0;
+
+      function checkCheckbox(secondIndexSelected) {
+        const [startIndex, endIndex] = firstIndexSelected > secondIndexSelected ? [secondIndexSelected, firstIndexSelected] : [firstIndexSelected, secondIndexSelected];
+        for (let i = startIndex; i <= endIndex; i++) {
+          checkboxes[i]['checked'] = true;
+        }
+      }
+
+      function changeCheckboxSelected(secondIndexSelected) {
+        firstIndexSelected = secondIndexSelected;
+      }
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('click', (e) => {
+          const secondIndexSelected = checkboxes.indexOf(e.target);
+          if (e.target['checked'] && e.shiftKey) checkCheckbox(secondIndexSelected);
+          changeCheckboxSelected(secondIndexSelected);
+        });
+      });
+    </script>
+
+    -->
+
+    <!-- 法三（inBetween）
+    
+    <script>
+      const checkboxes = document.querySelectorAll(
+        '.inbox input[type="checkbox"]'
+      );
+
+      // STEP2-1 處理 checkbox 被 click 的事件
+      checkboxes.forEach((checkbox) =>
+        checkbox.addEventListener('click', checkHandler)
+      );
+
+      let prevCheck;
+
+      function checkHandler(e) {
+        let inBetween = false;
+
+        // STEP2-2 如果使用者按住 shift 且勾選某個項目
+        if (e.shiftKey && e.target.checked) {
+          checkboxes.forEach((checkbox) => {
+            // STEP2-3 把 inBetween 開啟和關閉（第一次碰到開啟，第二次碰到關閉）
+            if (checkbox === prevCheck || checkbox === e.target) {
+              inBetween = !inBetween;
+            }
+            // STEP2-4 如果 inBetween 為 true，則把該 checkbox 勾選
+            if (inBetween) {
+              checkbox.checked = true;
+            }
+          });
+        }
+
+        // STEP2-5 紀錄上一次勾選的是哪個 checkbox
+        prevCheck = e.target;
+      }
+    </script>
+  
+    -->
+  </body>
+</html>

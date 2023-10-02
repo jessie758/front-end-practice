@@ -1,0 +1,559 @@
+/********** CSS Reset **********/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/********** Basic Setting **********/
+
+:root {
+  --dark-violet: hsl(256, 26%, 20%);
+  --very-dark-violet: hsl(270, 9%, 17%);
+  --dark-grayish-violet: hsl(273, 4%, 51%);
+  --grayish-blue: hsl(216, 30%, 68%);
+  --very-light-gray: hsl(0, 0%, 98%);
+
+  --font-size-h1: 2.8rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 1.8rem;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Karla', sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title,
+.box-title {
+  font-family: 'DM Serif Display', serif;
+}
+
+.text {
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/********** Mobile **********/
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* navbar */
+
+header {
+  width: 100%;
+  height: 5rem;
+  background: white;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .nav-toggler input {
+  position: absolute;
+  visibility: hidden;
+}
+
+header .nav-links {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+  height: 100vh;
+  padding: 2.5rem 5%;
+  background: url(./images/bg-pattern-mobile-nav.svg) var(--very-dark-violet);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  transition: opacity 0.3s;
+}
+
+header .nav-links-desktop {
+  display: none;
+}
+
+header .nav-link a {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+header .nav-btn,
+header .nav-btn button {
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+header .nav-toggler:has(#nav-toggler-switch:not(:checked)) ~ .nav-links,
+header #nav-toggler-switch:not(:checked) ~ .nav-toggler-icon .close {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+header #nav-toggler-switch:checked ~ .nav-toggler-icon .hamburger {
+  position: absolute;
+  visibility: hidden;
+}
+
+/* banner */
+
+#banner .description {
+  padding: 4rem 0;
+  background: url(./images/bg-pattern-intro-left-mobile.svg), var(--dark-violet);
+  background-position: top left;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+#banner .description::after {
+  content: '';
+  display: block;
+  width: 30%;
+  height: 70%;
+  position: absolute;
+  right: 0;
+  bottom: -40%;
+  background: url(./images/bg-pattern-intro-right-mobile.svg);
+  background-size: 100% 100%;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+
+#banner .description .title {
+  font-size: var(--font-size-h1);
+}
+
+#banner .description .text {
+  color: var(--very-light-gray);
+}
+
+/* different */
+
+#different {
+  padding-top: 8rem;
+  text-align: center;
+}
+
+#different .title {
+  font-size: var(--font-size-h1);
+  line-height: 2.5;
+  position: relative;
+}
+
+#different .title::before {
+  content: '';
+  width: 45%;
+  height: 0.5px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: var(--dark-grayish-violet);
+}
+
+#different .box {
+  margin-top: 3rem;
+}
+
+#different .box .box-title {
+  margin-top: 2rem;
+  font-size: var(--font-size-h3);
+}
+
+#different .box .text {
+  color: var(--dark-grayish-violet);
+}
+
+/* find out */
+
+#find-out {
+  margin-top: 4rem;
+  padding: 4rem 2rem;
+  background: url(./images/bg-pattern-how-we-work-mobile.svg),
+    var(--dark-violet);
+  background-position: top right;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+}
+
+#find-out .title {
+  font-size: var(--font-size-h2);
+}
+
+/* footer */
+
+footer {
+  margin-top: 7rem;
+  padding: 5rem 0;
+  background: url(./images/bg-pattern-footer-mobile.svg), var(--very-light-gray);
+  background-position: top left;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+footer .social-media {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .social-media .icon {
+  cursor: pointer;
+}
+
+footer .footer-divider {
+  margin-top: 2rem;
+  width: 100%;
+  height: 0.5px;
+  background: var(--dark-grayish-violet);
+}
+
+footer .item {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+footer .item .item-title {
+  color: var(--dark-grayish-violet);
+  line-height: 6;
+  letter-spacing: 1px;
+}
+
+footer .item a {
+  color: var(--very-dark-violet);
+  line-height: 2.5;
+  letter-spacing: 1px;
+}
+
+/* attribution */
+
+.attribution {
+  padding: 1rem;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: underline;
+}
+
+/********** Desktop **********/
+
+@media screen and (min-width: 800px) {
+  /* basic setting */
+
+  :root {
+    --font-size-h1: 4rem;
+    --font-size-h2: 3rem;
+    --font-size-h3: 1.8rem;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .container {
+    width: 75%;
+  }
+
+  .btn {
+    margin-top: 0;
+    padding: 0.7rem 1.5rem;
+    border: 1.5px solid white;
+    font-size: 0.8rem;
+  }
+  .btn:hover {
+    border-color: white;
+    background: white;
+    color: var(--dark-violet);
+  }
+  .btn.black:hover {
+    border-color: black;
+    background: black;
+    color: white;
+  }
+
+  /* navbar */
+
+  header .nav-toggler {
+    display: none;
+  }
+
+  header .nav-links-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  header .nav-link {
+    flex: 0 0 max-content;
+  }
+
+  header .nav-link a {
+    color: var(--dark-grayish-violet);
+    font-size: 0.8rem;
+  }
+
+  header .nav-link a:hover {
+    color: black;
+  }
+
+  header .nav-btn,
+  header .nav-btn button {
+    font-size: 0.8rem;
+    border-color: black;
+    color: black;
+  }
+
+  /* banner */
+
+  #banner {
+    margin-top: 5rem;
+    position: relative;
+  }
+
+  #banner .banner-img {
+    position: absolute;
+    top: 6rem;
+    right: calc((100% - 75%) / 2);
+    width: 35%;
+    z-index: 1;
+  }
+
+  #banner .description {
+    padding: 6rem 0;
+    background: var(--dark-violet);
+  }
+
+  #banner .description::before {
+    content: '';
+    display: block;
+    width: 30%;
+    height: 90%;
+    position: absolute;
+    top: -3rem;
+    right: 0;
+    z-index: 2;
+    background: url(./images/bg-pattern-intro-right-desktop.svg);
+    background-size: 100% 100%;
+    background-position: top right;
+    background-repeat: no-repeat;
+  }
+
+  #banner .description::after {
+    content: '';
+    display: block;
+    width: 15%;
+    height: 80%;
+    position: absolute;
+    left: 0;
+    bottom: -50%;
+    background: url(./images/bg-pattern-intro-left-desktop.svg);
+    background-size: 100% 100%;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+  }
+
+  #banner .description .container {
+    text-align: start;
+  }
+
+  #banner .description .title {
+    padding-top: 4rem;
+    width: 50%;
+    position: relative;
+  }
+
+  #banner .description .title::before {
+    content: '';
+    width: 8rem;
+    height: 1px;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #banner .description .text {
+    width: 52%;
+  }
+
+  #banner .description .btn {
+    margin-top: 2rem;
+  }
+
+  /* different */
+
+  #different {
+    padding-top: 15rem;
+    text-align: start;
+  }
+
+  #different .title::before {
+    width: 8rem;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
+
+  #different .boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+  }
+
+  #different .box {
+    flex: 1 1 32%;
+  }
+
+  /* find out */
+
+  #find-out {
+    margin-top: 8rem;
+    padding: 4rem;
+    background: url(./images/bg-pattern-how-we-work-desktop.svg),
+      var(--dark-violet);
+    background-position: top right;
+    background-repeat: no-repeat;
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #find-out .title {
+    width: 60%;
+  }
+
+  #find-out .title span {
+    display: block;
+  }
+
+  /* footer */
+
+  footer {
+    margin-top: 8rem;
+    padding: 5rem 0;
+    background: url(./images/bg-pattern-footer-desktop.svg),
+      var(--very-light-gray);
+    background-position: top left;
+    background-repeat: no-repeat;
+    text-align: start;
+  }
+
+  footer .footer-top,
+  footer .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer .social-media {
+    margin-top: 0;
+  }
+
+  footer .social-media .icon:hover > svg path {
+    fill: black;
+  }
+
+  footer .item {
+    flex: 0 0 25%;
+  }
+
+  footer .item a:hover {
+    text-decoration: underline;
+  }
+}
+
+/*
+
+  【附註】
+
+  漢堡排選單：
+  1. 使用JS增加或移除「d-none」這個class名稱
+  2. 使用CSS的input:checked當作開關來控制選單的顯示
+
+  電腦版選單：
+  1. 手機版&電腦版共用選單
+  2. 手機版&電腦版分開成兩個選單
+
+  banner的背景圖樣：
+  1. 偽元素
+  2. HTML加一個div專門放圖樣
+
+  其他：
+  －寫手機版時記得考慮會不會跟電腦版衝突
+  －重複的數值可以獨立出來寫成CSS變數
+  －漢堡排選單的顯示動畫無法使用display需改成visibility
+  －想讓SVG改變顏色可使用CSS修改svg的path的fill屬性
+
+*/

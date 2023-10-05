@@ -58,10 +58,10 @@ function updateVideo(prop, value) {
 
 function onProgressChange(e) {
   // 更新進度條
-  const width = `${e.clientX}px`;
+  const width = `${e.offsetX}px`;
   updateProgressBar(width);
   // 更新影片進度
-  const time = (e.clientX / controller.clientWidth) * video.duration;
+  const time = (e.offsetX / controller.offsetWidth) * video.duration;
   updateVideo('currentTime', time);
 }
 

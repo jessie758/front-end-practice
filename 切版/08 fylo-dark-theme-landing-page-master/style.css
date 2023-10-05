@@ -1,0 +1,653 @@
+/********** CSS Reset **********/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/********** Basic Setting **********/
+
+:root {
+  --dark-blue-very-light: hsl(219, 30%, 18%);
+  --dark-blue-lighter: hsl(217, 28%, 15%);
+  --dark-blue-main: hsl(218, 28%, 13%);
+  --dark-blue-darker: hsl(216, 53%, 9%);
+
+  --cyan: hsl(176, 68%, 64%);
+  --blue: hsl(198, 60%, 50%);
+  --light-red: hsl(0, 100%, 63%);
+
+  --font-size-h1: 1.5rem;
+  --font-size-h2: 1.2rem;
+
+  --section-gap: 10rem;
+}
+
+body {
+  color: white;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  background: var(--dark-blue-main);
+}
+
+.container {
+  width: 88%;
+  margin: 0 auto;
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.text {
+  line-height: 1.5;
+}
+
+.center {
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  padding: 1rem 5rem;
+  border-radius: 2rem;
+  background: linear-gradient(135deg, var(--cyan), var(--blue));
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/********** Mobile **********/
+
+/* header */
+
+header {
+  padding: 1.5rem;
+  background: var(--dark-blue-lighter);
+}
+
+header .flexbox {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header .logo {
+  width: 25%;
+}
+
+header .navbar.flexbox {
+  gap: 1rem;
+}
+
+header .navbar .nav-item {
+  width: 3rem;
+  justify-content: center;
+}
+
+header .navbar a {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* intro */
+
+#intro {
+  padding-top: 2rem;
+  background: url(./images/bg-curvy-mobile.svg),
+    linear-gradient(
+      to bottom,
+      var(--dark-blue-lighter) 0%,
+      var(--dark-blue-lighter) 60%,
+      var(--dark-blue-main) 60%,
+      var(--dark-blue-main) 100%
+    );
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#intro .description {
+  margin-top: 2rem;
+}
+
+#intro .description .title {
+  font-size: var(--font-size-h1);
+  font-family: 'Raleway', sans-serif;
+}
+
+#intro .description .text {
+  margin-top: 1rem;
+}
+
+#intro .description .btn {
+  margin-top: 2rem;
+}
+
+/* feature */
+
+#feature {
+  margin-top: var(--section-gap);
+}
+
+#feature .item-wrapper.flexbox {
+  gap: 5rem;
+}
+
+#feature .item .icon {
+  width: 20%;
+  margin: 0 auto;
+}
+
+#feature .item .title {
+  margin-top: 2rem;
+  font-size: var(--font-size-h2);
+}
+
+#feature .item .text {
+  margin-top: 0.5rem;
+}
+
+/* stay productive */
+
+#stay-prod {
+  margin-top: var(--section-gap);
+}
+
+#stay-prod .description .title {
+  margin-top: 2rem;
+  font-size: var(--font-size-h2);
+}
+
+#stay-prod .description .title br {
+  display: none;
+}
+
+#stay-prod .description .text p {
+  margin-top: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+#stay-prod .link a.flexbox {
+  flex-direction: row;
+  justify-content: start;
+  gap: 0.3rem;
+}
+
+#stay-prod .link a {
+  margin-top: 1rem;
+  padding-bottom: 0.3rem;
+  width: fit-content;
+  color: var(--cyan);
+  border-bottom: 1.5px solid var(--cyan);
+}
+
+#stay-prod .link svg {
+  width: 1rem;
+}
+
+/* testimonial */
+
+#testimonial {
+  margin-top: var(--section-gap);
+}
+
+#testimonial .container {
+  width: 80%;
+}
+
+#testimonial .item-wrapper.flexbox {
+  gap: 2rem;
+}
+
+#testimonial .item {
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0px rgba(60, 69, 82, 0.3);
+  background: var(--dark-blue-very-light);
+  position: relative;
+}
+
+#testimonial .item:nth-of-type(1)::before {
+  content: '';
+  background: url(./images/bg-quotes.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -25px;
+  left: 10px;
+  z-index: -1;
+}
+
+#testimonial .item .text {
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+#testimonial .profile.flexbox {
+  flex-direction: row;
+  justify-content: start;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+#testimonial .profile .photo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#testimonial .profile .name {
+  font-size: 12px; /* font-size字體大小最小值為12px */
+  font-weight: 700;
+}
+
+#testimonial .profile .job-title {
+  margin-top: 0.5rem;
+  transform: scale(0.7); /* font-size最小值為12px，要再更小需靠scale突破限制 */
+  transform-origin: left; /* 設定縮放的基準點，預設值為center */
+  text-align: start;
+}
+
+/* sign up */
+
+.sign-up-background {
+  background: linear-gradient(
+    to bottom,
+    var(--dark-blue-main) 0%,
+    var(--dark-blue-main) 50%,
+    var(--dark-blue-darker) 50%,
+    var(--dark-blue-darker) 100%
+  );
+}
+
+#sign-up {
+  margin-top: var(--section-gap);
+  padding: 3rem 1.5rem;
+  border-radius: 5px;
+  background: var(--dark-blue-lighter);
+}
+
+#sign-up .description .title {
+  font-size: var(--font-size-h2);
+}
+
+#sign-up .description .text {
+  margin-top: 1rem;
+}
+
+#sign-up form.flexbox {
+  margin-top: 2rem;
+  gap: 1.5rem;
+}
+
+#sign-up form .email {
+  width: 100%;
+  position: relative;
+}
+
+#sign-up form input {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  border-radius: 2rem;
+}
+
+#sign-up form input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 0.7rem;
+}
+
+#sign-up form .error-msg {
+  display: none;
+  color: var(--light-red);
+  font-size: 0.7rem;
+  position: absolute;
+  left: 1.5rem;
+  bottom: -1.5rem;
+}
+
+#sign-up form.validated input:invalid ~ .error-msg {
+  display: block;
+}
+
+#sign-up form button.submit {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* footer */
+
+footer {
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  background: var(--dark-blue-darker);
+}
+
+footer .logo {
+  width: 10rem;
+  margin-bottom: 2rem;
+}
+
+footer .flexbox {
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+}
+
+footer .wrapper.flexbox {
+  flex-direction: row;
+}
+
+footer .info-icon {
+  flex: 0 0 13px;
+}
+
+footer .location-wrapper .info-icon img {
+  vertical-align: -webkit-baseline-middle;
+}
+
+footer .sub-wrapper .text {
+  line-height: 1;
+}
+
+footer .link-wrapper.flexbox {
+  margin-top: 3rem;
+  gap: 3rem;
+}
+
+footer .link a {
+  color: white;
+}
+
+footer .social-media.flexbox {
+  margin-top: 3.5rem;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+footer .social-media .social-icon.flexbox {
+  justify-content: center;
+  align-items: center;
+}
+
+footer .social-media .social-icon {
+  width: 20px;
+  height: 20px;
+  padding: 14px;
+  border: 1px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* attribution */
+
+.attribution {
+  padding: 1rem;
+  background: white;
+  color: black;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution span {
+  color: hsl(228, 45%, 44%);
+  text-decoration: underline;
+}
+
+/********** Desktop **********/
+
+@media screen and (min-width: 800px) {
+  /* basic setting */
+
+  :root {
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.2rem;
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  /* header */
+
+  header {
+    padding: 4rem;
+  }
+
+  header .logo {
+    width: 10rem;
+  }
+
+  header .navbar.flexbox {
+    gap: 3rem;
+  }
+
+  /* intro */
+
+  #intro .container {
+    width: 45%;
+  }
+
+  #intro .description .text {
+    padding: 0 2rem;
+    font-size: 1.05rem;
+  }
+
+  /* feature */
+
+  #feature .container {
+    width: 60%;
+  }
+
+  #feature .item-wrapper.flexbox {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #feature .item {
+    flex: 1 0 30%;
+  }
+
+  #feature .item .title {
+    font-size: var(--font-size-h3);
+  }
+
+  /* stay productive */
+
+  #stay-prod .wrapper.flexbox {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  #stay-prod .stay-prod-img {
+    flex: 0 0 49%;
+  }
+
+  #stay-prod .description {
+    flex: 0 0 49%;
+  }
+
+  #stay-prod .description .title {
+    font-size: var(--font-size-h1);
+  }
+
+  #stay-prod .description .title br {
+    display: block;
+  }
+
+  /* testimonial */
+
+  #testimonial .item-wrapper.flexbox {
+    flex-direction: row;
+  }
+
+  #testimonial .item {
+    padding-top: 2rem;
+  }
+
+  #testimonial .item:nth-of-type(1)::before {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: -37px;
+    left: -7px;
+  }
+
+  #testimonial .profile {
+    transform: scale(0.9);
+    transform-origin: left;
+  }
+
+  /* sign up */
+
+  .sign-up-background .container {
+    width: 60%;
+  }
+
+  #sign-up {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  #sign-up .description .text {
+    padding: 0 1.5rem;
+    font-size: 12px;
+  }
+
+  #sign-up form.flexbox {
+    flex-direction: row;
+  }
+
+  #sign-up form .email {
+    flex: 0 0 70%;
+  }
+
+  /* footer */
+
+  footer {
+    font-size: 0.9rem;
+    padding-bottom: 5rem;
+  }
+
+  footer .logo {
+    width: 10rem;
+  }
+
+  footer .footer-wrapper.flexbox {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  footer .corp-info {
+    flex: 0 1 50%;
+    flex-direction: row;
+    gap: 4rem;
+  }
+
+  footer .corp-info .location-wrapper {
+    flex: 0 1 55%;
+  }
+
+  footer .corp-info .sub-wrapper {
+    flex: 0 1 20%;
+  }
+
+  footer .link-wrapper.flexbox {
+    flex: 0 0 25%;
+    margin-top: 0;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  footer .link-wrapper .link {
+    width: 5rem;
+  }
+
+  footer .social-media.flexbox {
+    flex: 0 1 5%;
+    margin-top: 0;
+  }
+
+  /* hover */
+
+  button:hover {
+    background: var(--cyan);
+  }
+
+  header .navbar a:hover {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #stay-prod .link a:hover {
+    border-color: white;
+    color: white;
+  }
+
+  #stay-prod .link a:hover .arrow {
+    fill: white;
+  }
+
+  footer .links .link:hover {
+    font-weight: 700;
+  }
+
+  footer .social-media .social-icon:hover {
+    border-color: var(--cyan);
+  }
+
+  footer .social-media .social-icon:hover i {
+    color: var(--cyan);
+  }
+}
+
+/*
+
+  【附註】
+  
+  1. 藉由scale()突破字體最小12px的限制
+  2. 二維的footer可改用grid排版
+  
+*/

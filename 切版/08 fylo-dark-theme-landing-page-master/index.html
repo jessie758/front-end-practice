@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Frontend Mentor | Fylo landing page with dark theme and features grid
+    </title>
+
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="wrapper flexbox">
+        <!-- logo -->
+        <div class="logo">
+          <img src="./images/logo.svg" alt="logo" />
+        </div>
+        <!-- navbar -->
+        <ul class="navbar flexbox">
+          <li class="nav-item flexbox"><a href="#">Features</a></li>
+          <li class="nav-item flexbox"><a href="#">Team</a></li>
+          <li class="nav-item flexbox"><a href="#">Sign In</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <!-- intro -->
+      <section id="intro">
+        <div class="container">
+          <div class="intro-img">
+            <img src="./images/illustration-intro.png" alt="intro image" />
+          </div>
+          <div class="description center">
+            <div class="title">
+              All your files in one secure location, accessible anywhere.
+            </div>
+            <div class="text">
+              Fylo stores all your most important files in one secure location.
+              Access them wherever you need, share and collaborate with friends
+              family, and co-workers.
+            </div>
+            <button type="button" class="btn">Get Started</button>
+          </div>
+        </div>
+      </section>
+      <!-- feature -->
+      <section id="feature">
+        <div class="container">
+          <div class="item-wrapper flexbox">
+            <div class="item">
+              <div class="icon">
+                <img src="./images/icon-access-anywhere.svg" alt="icon" />
+              </div>
+              <div class="content center">
+                <div class="title">Access your files, anywhere</div>
+                <div class="text">
+                  The ability to use a smartphone, tablet, or computer to access
+                  your account means your files follow you everywhere.
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="icon">
+                <img src="./images/icon-security.svg" alt="icon" />
+              </div>
+              <div class="content center">
+                <div class="title">Security you can trust</div>
+                <div class="text">
+                  2-factor authentication and user-controlled encryption are
+                  just a couple of the security features we allow to help secure
+                  your files.
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="icon">
+                <img src="./images/icon-collaboration.svg" alt="icon" />
+              </div>
+              <div class="content center">
+                <div class="title">Real-time collaboration</div>
+                <div class="text">
+                  Securely share files and folders with friends, family and
+                  colleagues for live collaboration. No email attachments
+                  required.
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="icon">
+                <img src="./images/icon-any-file.svg" alt="icon" />
+              </div>
+              <div class="content center">
+                <div class="title">Store any type of file</div>
+                <div class="text">
+                  Whether you're sharing holidays photos or work documents, Fylo
+                  has you covered allowing for all file types to be securely
+                  stored and shared.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- stay productive -->
+      <section id="stay-prod">
+        <div class="container">
+          <div class="wrapper flexbox">
+            <div class="stay-prod-img">
+              <img
+                src="./images/illustration-stay-productive.png"
+                alt="illustration"
+              />
+            </div>
+            <div class="description">
+              <div class="title">Stay productive, <br />wherever you are</div>
+              <div class="text">
+                <p>
+                  Never let location be an issue when accessing your files. Fylo
+                  has you covered for all of your file storage needs.
+                </p>
+                <p>
+                  Securely share files and folders with friends, family and
+                  colleagues for live collaboration. No email attachments
+                  required.
+                </p>
+              </div>
+              <div class="link">
+                <a href="#" class="flexbox">
+                  See how Fylo works
+                  <svg
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    class="arrow"
+                  >
+                    <defs>
+                      <circle id="b" cx="6" cy="6" r="6" />
+                      <filter
+                        x="-25%"
+                        y="-25%"
+                        width="150%"
+                        height="150%"
+                        filterUnits="objectBoundingBox"
+                        id="a"
+                      >
+                        <feOffset
+                          in="SourceAlpha"
+                          result="shadowOffsetOuter1"
+                        />
+                        <feGaussianBlur
+                          stdDeviation="1"
+                          in="shadowOffsetOuter1"
+                          result="shadowBlurOuter1"
+                        />
+                        <feColorMatrix
+                          values="0 0 0 0 0.384313725 0 0 0 0 0.878431373 0 0 0 0 0.850980392 0 0 0 0.811141304 0"
+                          in="shadowBlurOuter1"
+                        />
+                      </filter>
+                    </defs>
+                    <g fill="none" fill-rule="evenodd" class="arrow">
+                      <g transform="translate(2 2)">
+                        <use
+                          fill="#000"
+                          filter="url(#a)"
+                          xlink:href="#b"
+                          class="arrow"
+                        />
+                        <use fill="#62E0D9" xlink:href="#b" class="arrow" />
+                      </g>
+                      <path
+                        d="M8.582 6l-.363.35 1.452 1.4H5.333v.5h4.338L8.22 9.65l.363.35 2.074-2z"
+                        fill="#1B2330"
+                      />
+                    </g>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- testimonial -->
+      <section id="testimonial">
+        <div class="container">
+          <div class="item-wrapper flexbox">
+            <div class="item">
+              <div class="text">
+                Fylo has improved our team productivity by an order of
+                magnitude. Since making the switch our team has become a
+                well-oiled collaboration machine.
+              </div>
+              <div class="profile flexbox">
+                <div class="photo">
+                  <img src="./images/profile-1.jpg" alt="profile" />
+                </div>
+                <div class="info">
+                  <div class="name">Satish Patel</div>
+                  <div class="job-title">Founder & CEO, Huddle</div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="text">
+                Fylo has improved our team productivity by an order of
+                magnitude. Since making the switch our team has become a
+                well-oiled collaboration machine.
+              </div>
+              <div class="profile flexbox">
+                <div class="photo">
+                  <img src="./images/profile-2.jpg" alt="profile" />
+                </div>
+                <div class="info">
+                  <div class="name">Bruce McKenzie</div>
+                  <div class="job-title">Founder & CEO, Huddle</div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="text">
+                Fylo has improved our team productivity by an order of
+                magnitude. Since making the switch our team has become a
+                well-oiled collaboration machine.
+              </div>
+              <div class="profile flexbox">
+                <div class="photo">
+                  <img src="./images/profile-3.jpg" alt="profile" />
+                </div>
+                <div class="info">
+                  <div class="name">Iva Boyd</div>
+                  <div class="job-title">Founder & CEO, Huddle</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- sign up -->
+      <div class="sign-up-background">
+        <div class="container">
+          <section id="sign-up">
+            <div class="description center">
+              <div class="title">Get early access today</div>
+              <div class="text">
+                It only takes a minute to sign up and our free starter tier is
+                extremely generous. If you have any questions, our support team
+                would be happy to help you.
+              </div>
+            </div>
+            <form action="#" class="flexbox" novalidate>
+              <div class="email">
+                <input
+                  type="text"
+                  class="email-input"
+                  placeholder="email@example.com"
+                  pattern="^([\w\d]+)@(\w+)\.(\w{2,4})$"
+                  required
+                />
+                <div class="error-msg">Please enter a valid email address</div>
+              </div>
+              <button type="submit" class="btn submit">
+                Get Started For Free
+              </button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <!-- logo -->
+        <div class="logo">
+          <img src="./images/logo.svg" alt="logo" />
+        </div>
+        <!-- info -->
+        <div class="footer-wrapper flexbox">
+          <!-- corporation information -->
+          <div class="corp-info flexbox">
+            <div class="wrapper flexbox location-wrapper">
+              <div class="info-icon">
+                <img src="./images/icon-location.svg" alt="icon" />
+              </div>
+              <div class="text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua
+              </div>
+            </div>
+            <div class="sub-wrapper flexbox">
+              <div class="wrapper flexbox">
+                <div class="info-icon">
+                  <img src="./images/icon-phone.svg" alt="icon" />
+                </div>
+                <div class="text">+1-543-123-4567</div>
+              </div>
+              <div class="wrapper flexbox">
+                <div class="info-icon">
+                  <img src="./images/icon-email.svg" alt="icon" />
+                </div>
+                <div class="text">example@fylo.com</div>
+              </div>
+            </div>
+          </div>
+          <!-- footer links -->
+          <div class="link-wrapper flexbox">
+            <ul class="links flexbox">
+              <li class="link"><a href="#">About Us</a></li>
+              <li class="link"><a href="#">Jobs</a></li>
+              <li class="link"><a href="#">Press</a></li>
+              <li class="link"><a href="#">Blog</a></li>
+            </ul>
+            <ul class="links flexbox">
+              <li class="link"><a href="#">Contact Us</a></li>
+              <li class="link"><a href="#">Terms</a></li>
+              <li class="link"><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+          <!-- social media -->
+          <div class="social-media flexbox">
+            <div class="social-icon flexbox">
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="social-icon flexbox">
+              <i class="fa-brands fa-twitter"></i>
+            </div>
+            <div class="social-icon flexbox">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="attribution">
+      <p>
+        Challenge by <span>Frontend Mentor</span>. Coded by <span>Jessie</span>.
+      </p>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

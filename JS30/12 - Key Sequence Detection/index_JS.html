@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+
+  <body>
+    <script type="text/javascript" src="./cornify.js"></script>
+
+    <script>
+      /*
+        目標：
+        當使用者輸入特定的字串後，讓網頁產生特殊效果
+
+        流程：
+        1. 監聽使用者的輸入並儲存下來
+        2. 將輸入與關鍵字進行比對
+        3. 動態地清理輸入的緩存
+      */
+
+      const input = [];
+      const keyword = 'jessie';
+
+      // 監聽 document 或 window 都可以
+      // 但必須使用 keydown/keyup 而非 keypress 事件，才能監聽特殊按鍵的輸入
+      document.addEventListener('keyup', (e) => {
+        // 捕捉並儲存使用者的輸入
+        input.push(e.key);
+        
+        // input超出指定個數時清理緩存
+        // input.splice(0, input.length - keyword.length);
+        if (input.length > keyword.length) input.shift();
+
+        if (input.join('').includes(keyword)) {
+          console.log('Bingo!');
+          cornify_add();
+        }
+      });
+    </script>
+  </body>
+</html>

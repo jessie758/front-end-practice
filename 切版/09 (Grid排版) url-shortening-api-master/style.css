@@ -48,10 +48,11 @@ a {
   --section-gap: 5rem;
 }
 
-body {
+html {
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -70,6 +71,10 @@ button {
   color: white;
   font-weight: 700;
   cursor: pointer;
+}
+
+button a {
+  color: white;
 }
 
 .rounded {
@@ -428,6 +433,8 @@ nav hr {
 #boost {
   padding: 5rem 0;
   background: url(./images/bg-boost-mobile.svg), var(--dark-violet);
+  background-size: 100% 100%;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
@@ -536,10 +543,10 @@ footer .share-btn i {
   }
 
   header .logo {
-    width: 10rem;
+    width: 9rem;
   }
 
-  nav .nav-toggler {
+  nav .nav-toggler-wrapper {
     display: none;
   }
 
@@ -547,6 +554,7 @@ footer .share-btn i {
     width: 100%;
     position: unset;
     visibility: unset;
+    opacity: unset;
     background: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 5fr 1fr 2fr;
@@ -567,6 +575,7 @@ footer .share-btn i {
 
   nav button {
     grid-area: nav5;
+    min-width: 6rem;
     padding: 13px 0;
   }
 

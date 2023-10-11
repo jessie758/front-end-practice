@@ -1,0 +1,35 @@
+/********** variable **********/
+
+// color
+$bright-red: hsl(12, 88%, 59%);
+$dark-blue: hsl(228, 39%, 23%);
+$dark-grayish-blue: hsl(227, 12%, 61%);
+$very-dark-blue: hsl(233, 12%, 13%);
+$very-pale-red: hsl(13, 100%, 96%);
+$vary-light-gray: hsl(0, 0%, 98%);
+
+// font
+$font-be-vietnam-pro: 'Be Vietnam Pro', sans-serif;
+
+// border
+$rounded-border: 2rem;
+
+// shadow
+$red-shadow: hsl(12, 88%, 85%);
+$shadow: 0 10px 10px -5px $red-shadow;
+
+/********** function **********/
+
+@mixin pill(
+    $box-shadow: $shadow,
+    $background: $bright-red,
+    $color: white,
+    $font-size: 0.8rem
+  ) {
+  padding: 1rem 1.5rem;
+  box-shadow: $box-shadow;
+  border-radius: $rounded-border;
+  background: $background;
+  color: $color;
+  font-size: $font-size;
+}

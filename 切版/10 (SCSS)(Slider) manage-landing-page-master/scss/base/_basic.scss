@@ -1,0 +1,24 @@
+html {
+  font-size: 16px;
+  font-family: $font-be-vietnam-pro;
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+button {
+  @include pill();
+  cursor: pointer;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  
+  @include breakpoint(desktop) {
+    width: 80%;
+  }
+}

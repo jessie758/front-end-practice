@@ -1,0 +1,43 @@
+#banner {
+  padding: 1rem 0;
+
+  .container {
+    @include flex($direction: column);
+    text-align: center;
+
+    @include breakpoint(desktop) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  .img {
+    @include breakpoint(desktop) {
+      flex: 1 1 50%;
+    }
+  }
+
+  .description {
+    @include breakpoint(desktop) {
+      flex: 1 1 50%;
+      text-align: start;
+    }
+
+    .text {
+      margin-top: 0.5rem;
+
+      @include breakpoint(desktop) {
+        margin-top: 1.5rem;
+        padding-right: 8rem;
+      }
+    }
+
+    button {
+      margin-top: 1.8rem;
+
+      @include breakpoint(desktop) {
+        margin-top: 2rem;
+      }
+    }
+  }
+}

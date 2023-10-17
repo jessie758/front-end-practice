@@ -1,0 +1,40 @@
+#testimonial {
+  margin-top: var(--gap-lg);
+  text-align: center;
+
+  .item-wrapper {
+    margin-top: var(--gap-lg);
+    
+    .item {
+      padding: 2rem 1rem;
+      padding-top: 3rem;
+      background: var(--very-light-gray);
+      position: relative;
+
+      @include breakpoint(desktop) {
+        width: 55%;
+        padding: 3rem;
+        // padding-top: ;
+      }
+
+      .photo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      .text {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  button {
+    margin-top: var(--gap-md);
+  }
+}

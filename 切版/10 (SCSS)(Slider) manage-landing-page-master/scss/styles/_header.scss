@@ -1,0 +1,89 @@
+header {
+  padding: 2.5rem 0;
+  position: relative;
+
+  @include breakpoint(desktop) {
+    padding: 3rem 0;
+  }
+
+  .container {
+    @include flex($justify: space-between);
+  }
+
+  .logo {
+    width: 120px;
+    
+    @include breakpoint(desktop) {
+      width: 140px;
+    }
+  }
+
+  button {
+    display: none;
+
+    @include breakpoint(desktop) {
+      display: block;
+    }
+  }
+}
+
+nav {
+  .nav-toggler-wrapper {
+    width: 23px;
+    height: 23px;
+    @include flex($gap: 0);
+    
+    @include breakpoint(desktop) {
+      display: none;
+    }
+
+    .nav-toggler {
+      pointer-events: none;
+      
+      &.d-none {
+        display: none;
+      }
+    }
+  }
+
+  .nav-list {
+    visibility: hidden;
+    opacity: 0;
+    padding: 2.5rem 0;
+    border-radius: var(--light-rounded-border);
+    background: white;
+    @include flex($direction: column, $gap: 2rem);
+    position: absolute;
+    top: 100%;
+    left: calc((100% - var(--container-width-mobile)) / 2);
+    right: calc((100% - var(--container-width-mobile)) / 2);
+    transition: opacity 0.5s;
+    
+    &.visible {
+      visibility: visible;
+      opacity: 100%;
+    }
+
+    @include breakpoint(desktop) {
+      visibility: visible;
+      opacity: 100%;
+      padding: 0;
+      background: unset;
+      flex-direction: row;
+      position: unset;
+    }
+    
+    a {
+      color: var(--dark-blue);
+      font-weight: 700;
+      
+      @include breakpoint(desktop) {
+        font-size: 0.9rem;
+      }
+
+      &:hover {
+        color: var(--dark-grayish-blue);
+      }
+    }
+  }
+}

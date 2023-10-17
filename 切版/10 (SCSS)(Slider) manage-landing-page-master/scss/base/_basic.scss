@@ -1,8 +1,42 @@
+// layout
+
 html {
   font-size: 16px;
-  font-family: $font-be-vietnam-pro;
+  font-family: var(--font-be-vietnam-pro);
+  overflow-x: hidden;
   scroll-behavior: smooth;
+  background: url('../assets/images/bg-tablet-pattern.svg'), url('../assets/images/bg-tablet-pattern.svg');
+  background-size: 130%, 80%;
+  background-position: 3rem -8rem, 15rem 34rem;
+  background-repeat: no-repeat;
+  position: relative;
+  
+  &.darken {
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      background: linear-gradient(rgba(0, 0, 0, 0), 30%, rgba(0, 0, 0, 1));
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: 10s;
+    }
+  }
 }
+
+.container {
+  width: var(--container-width-mobile);
+  margin: 0 auto;
+  
+  @include breakpoint(desktop) {
+    width: var(--container-width-desktop);
+  }
+}
+
+// component
 
 img {
   display: block;
@@ -12,13 +46,53 @@ img {
 button {
   @include pill();
   cursor: pointer;
+
+  &:hover {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), var(--bright-red); // hover遮罩效果
+  }
+
+  &.no-shadow {
+    @include pill($shadow-color: transparent);
+
+    &:hover {
+      background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), var(--bright-red); // hover遮罩效果
+    }
+  }
+
+  &.white-btn {
+    @include pill($shadow-color: var(--shadow-color-gray), $background: white, $color: var(--bright-red));
+
+    &:hover {
+      color: var(--very-pale-red); // hover遮罩效果
+    }
+  }
 }
 
-.container {
-  width: 90%;
-  margin: 0 auto;
-  
-  @include breakpoint(desktop) {
-    width: 80%;
-  }
+// font
+
+.title {
+  color: var(--dark-blue);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.title.fs-h1 {
+  font-size: var(--font-size-h1);
+}
+
+.title.fs-h2 {
+  font-size: var(--font-size-h2);
+}
+
+.title.fs-h3 {
+  font-size: var(--font-size-h3);
+}
+
+.text {
+  color: var(--dark-grayish-blue);
+  line-height: 1.8;
+}
+
+.text.fs-t2 {
+  font-size: 0.9rem;
 }

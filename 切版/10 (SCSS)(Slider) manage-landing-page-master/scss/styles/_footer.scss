@@ -1,0 +1,125 @@
+footer {
+  padding: 3rem 0;
+  background: var(--very-dark-blue);
+
+  .container {
+    @include flex($direction: column, $gap: 3rem);
+
+    @include breakpoint(desktop) {
+      display: grid;
+      grid-template-columns: 2fr 2fr 2fr 2fr;
+      grid-template-rows: 2fr 1fr;
+      grid-template-areas: 
+        "logo  link link subscription"
+        "media link link copyright";
+      column-gap: 2rem;
+    }
+  }
+}
+
+#subscription {
+  @include flex($direction: column, $gap: 2rem);
+
+  @include breakpoint(desktop) {
+    grid-area: subscription;
+    transform: scale(0.8);
+    transform-origin: top right;
+  }
+
+  form {
+    @include flex($gap: 0.5rem);
+
+    input {
+      @include pill($shadow-color: transparent, $background: white, $color: var(--very-dark-blue), $font-size: 0.9rem);
+      padding-left: 1.5rem;
+      
+      &::placeholder {
+        color: var(--dark-grayish-blue);
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+    }
+    
+    .email {
+      position: relative;
+    }
+    
+    .err-msg {
+      display: none;
+      color: var(--bright-red);
+      font-size: 0.8rem;
+      font-style: italic;
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 1.5rem;
+    }
+  }
+}
+
+#footer-link {
+  width: 100%;
+  @include flex($justify: space-around, $align: start);
+
+  @include breakpoint(desktop) {
+    grid-area: link;
+  }
+
+  .link-wrapper {
+    @include flex($direction: column, $justify: start, $align: start);
+
+    a {
+      color: white;
+
+      &:hover {
+        color: var(--bright-red);
+      }
+
+      @include breakpoint(desktop) {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+#social-media {
+  width: 100%;
+  @include flex($justify: space-evenly);
+
+  @include breakpoint(desktop) {
+    grid-area: media;
+    transform: scale(0.7);
+    transform-origin: top left;
+  }
+
+  i {
+    color: white;
+
+    &.fa-youtube {
+      color: var(--very-dark-blue);
+    }
+
+    &:hover {
+      color: var(--bright-red);
+    }
+  }
+}
+
+#footer-logo {
+  @include breakpoint(desktop) {
+    grid-area: logo;
+  }
+
+  path.logo-text {
+    fill: white;
+  }
+}
+
+#copyright {
+  color: var(--dark-grayish-blue);
+  font-size: 0.8rem;
+
+  @include breakpoint(desktop) {
+    grid-area: copyright;
+    justify-self: end;
+  }
+}

@@ -1,35 +1,71 @@
-/********** variable **********/
+////////// variable //////////
 
-// color
-$bright-red: hsl(12, 88%, 59%);
-$dark-blue: hsl(228, 39%, 23%);
-$dark-grayish-blue: hsl(227, 12%, 61%);
-$very-dark-blue: hsl(233, 12%, 13%);
-$very-pale-red: hsl(13, 100%, 96%);
-$vary-light-gray: hsl(0, 0%, 98%);
+:root {
+  // color
+  --bright-red: hsl(12, 88%, 59%);
+  --dark-blue: hsl(228, 39%, 23%);
+  --dark-grayish-blue: hsl(227, 12%, 61%);
+  --very-dark-blue: hsl(233, 12%, 13%);
+  --very-pale-red: hsl(13, 100%, 80%);
+  --very-light-gray: hsl(0, 0%, 98%);
+  
+  // font
+  --font-be-vietnam-pro: 'Be Vietnam Pro', sans-serif;
+  --font-size-h1: 2.3rem;
+  --font-size-h2: 1.9rem;
+  --font-size-h3: 0.9rem;
+  
+  @include breakpoint(desktop) {
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 1rem;
+  }
+  
+  // border
+  --rounded-border: 30px;
+  --light-rounded-border: 5px;
+  
+  // shadow
+  --shadow-size: 0 10px 10px -5px;
+  --shadow-color-red: hsl(12, 88%, 82%);
+  --shadow-color-gray: rgba(0, 0, 0, 0.1);
+  
+  // container
+  --container-width-mobile: 90%;
+  --container-width-desktop: 80%;
+  
+  // gap
+  --gap-lg: 5rem;
+  --gap-md: 3rem;
 
-// font
-$font-be-vietnam-pro: 'Be Vietnam Pro', sans-serif;
+    @include breakpoint(desktop) {
+      --gap-lg: 7rem;
+    }
+}
 
-// border
-$rounded-border: 2rem;
-
-// shadow
-$red-shadow: hsl(12, 88%, 85%);
-$shadow: 0 10px 10px -5px $red-shadow;
-
-/********** function **********/
+////////// function //////////
 
 @mixin pill(
-    $box-shadow: $shadow,
-    $background: $bright-red,
+    $padding: 1rem 1.8rem,
+    $shadow-size: var(--shadow-size),
+    $shadow-color: var(--shadow-color-red),
+    $background: var(--bright-red),
     $color: white,
     $font-size: 0.8rem
   ) {
-  padding: 1rem 1.5rem;
-  box-shadow: $box-shadow;
-  border-radius: $rounded-border;
+  padding: $padding;
+  box-shadow: $shadow-size $shadow-color;
+  border-radius: var(--rounded-border);
   background: $background;
   color: $color;
   font-size: $font-size;
+  font-weight: 700;
+}
+
+@mixin flex($direction: row, $justify: center, $align: center, $gap: 1rem) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
 }

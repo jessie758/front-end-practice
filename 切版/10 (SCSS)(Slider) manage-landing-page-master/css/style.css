@@ -489,7 +489,7 @@ footer .container {
 @media screen and (min-width: 800px) {
   footer .container {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr 300px;
     grid-template-rows: 2fr 1fr;
     grid-template-areas: "logo  link link subscription" "media link link copyright";
     column-gap: 2rem;
@@ -543,6 +543,13 @@ footer .container {
   position: absolute;
   top: calc(100% + 0.5rem);
   left: 1.5rem;
+}
+#subscription form.validated input:invalid {
+  border: 2px solid var(--bright-red);
+  color: var(--bright-red);
+}
+#subscription form.validated input:invalid ~ .err-msg {
+  display: block;
 }
 
 #footer-link {

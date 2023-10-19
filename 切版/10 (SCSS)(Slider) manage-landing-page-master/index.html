@@ -209,9 +209,14 @@
       <div class="container">
         <!-- subscription -->
         <div id="subscription">
-          <form action="#subscription">
+          <form action="#subscription" novalidate>
             <div class="email">
-              <input type="text" placeholder="Updates in your inbox…" />
+              <input
+                type="text"
+                placeholder="Updates in your inbox…"
+                pattern="^([\w\d]+)@(\w+)\.(\w{2,4})$"
+                required
+              />
               <div class="err-msg">Please insert a valid email</div>
             </div>
             <button type="submit" class="no-shadow">Go</button>

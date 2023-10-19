@@ -1,20 +1,63 @@
 #testimonial {
   margin-top: var(--gap-lg);
   text-align: center;
+  
+  @include breakpoint(desktop) {
+    .container {
+      width: 100%;
+    }
+  }
 
+  .slider {
+    width: 100%;
+    height: 280px;
+    margin-top: var(--gap-md);
+    @include flex($justify: start, $align: end, $gap: 0);
+    position: relative;
+    overflow-x: hidden;
+  }
+  
   .item-wrapper {
-    margin-top: var(--gap-lg);
+    width: 100%;
+    @include flex($justify: start, $gap: 0);
+    position: absolute;
+    left: 0;
+    transition: all 0.7s;
+
+    @include breakpoint(desktop) {
+      // left: 20%;
+      // display: grid;
+      // grid-template-columns: 1fr 3fr 1fr;
+      // grid-template-areas: "item1 item2 item3";
+      gap: 2rem;
+    }
     
     .item {
+      flex-shrink: 0;
+      width: 100%;
       padding: 2rem 1rem;
       padding-top: 3rem;
       background: var(--very-light-gray);
       position: relative;
 
       @include breakpoint(desktop) {
-        width: 55%;
+        // display: none;
+        width: 60%;
+        height: 200px;
         padding: 3rem;
-        // padding-top: ;
+
+        // &:where(.one, .two, .three) {
+        //   display: block;
+        // }
+        // &.one {
+        //   grid-area: item1;
+        // }
+        // &.two {
+        //   grid-area: item2;
+        // }
+        // &.three {
+        //   grid-area: item3;
+        // }
       }
 
       .photo {
@@ -30,6 +73,27 @@
 
       .text {
         margin-top: 1rem;
+      }
+    }
+  }
+
+  .indicator-panel {
+    margin-top: 1rem;
+    @include flex($gap: 5px);
+
+    @include breakpoint(desktop) {
+      // display: none;
+    }
+
+    .indicator {
+      width: 8px;
+      height: 8px;
+      border: 1.5px solid var(--bright-red);
+      border-radius: 50%;
+      cursor: pointer;
+
+      &.active {
+        background: var(--bright-red);
       }
     }
   }

@@ -19,14 +19,14 @@
   --gap-lg: 5rem;
   --gap-md: 3rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   :root {
     --font-size-h1: 3rem;
     --font-size-h2: 2.5rem;
     --font-size-h3: 1rem;
   }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   :root {
     --gap-lg: 7rem;
   }
@@ -85,7 +85,7 @@ html.darken::before {
   width: var(--container-width-mobile);
   margin: 0 auto;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   .container {
     width: var(--container-width-desktop);
   }
@@ -165,7 +165,7 @@ header {
   padding: 2.5rem 0;
   position: relative;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   header {
     padding: 3rem 0;
   }
@@ -180,7 +180,7 @@ header .container {
 header .logo {
   width: 120px;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   header .logo {
     width: 140px;
   }
@@ -188,7 +188,7 @@ header .logo {
 header button {
   display: none;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   header button {
     display: block;
   }
@@ -203,7 +203,7 @@ nav .nav-toggler-wrapper {
   align-items: center;
   gap: 0;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   nav .nav-toggler-wrapper {
     display: none;
   }
@@ -235,7 +235,7 @@ nav .nav-list.visible {
   visibility: visible;
   opacity: 100%;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   nav .nav-list {
     visibility: visible;
     opacity: 100%;
@@ -249,7 +249,7 @@ nav .nav-list a {
   color: var(--dark-blue);
   font-weight: 700;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   nav .nav-list a {
     font-size: 0.9rem;
   }
@@ -269,18 +269,18 @@ nav .nav-list a:hover {
   gap: 1rem;
   text-align: center;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #banner .container {
     flex-direction: row-reverse;
     justify-content: space-between;
   }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #banner .img {
     flex: 1 1 50%;
   }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #banner .description {
     flex: 1 1 50%;
     text-align: start;
@@ -289,7 +289,7 @@ nav .nav-list a:hover {
 #banner .description .text {
   margin-top: 0.5rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #banner .description .text {
     margin-top: 1.5rem;
     padding-right: 8rem;
@@ -298,7 +298,7 @@ nav .nav-list a:hover {
 #banner .description button {
   margin-top: 1.8rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #banner .description button {
     margin-top: 2rem;
   }
@@ -314,7 +314,7 @@ nav .nav-list a:hover {
   align-items: center;
   gap: 2rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #feature .container {
     flex-direction: row;
     align-items: start;
@@ -324,7 +324,7 @@ nav .nav-list a:hover {
 #feature .description {
   text-align: center;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #feature .description {
     flex: 1 1 50%;
     text-align: start;
@@ -333,7 +333,7 @@ nav .nav-list a:hover {
 #feature .description .text {
   margin-top: 1rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #feature .description .text {
     margin-top: 2rem;
     padding-right: 10rem;
@@ -346,7 +346,7 @@ nav .nav-list a:hover {
   align-items: center;
   gap: var(--gap-md);
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #feature .item-wrapper {
     flex: 1 1 50%;
   }
@@ -367,7 +367,7 @@ nav .nav-list a:hover {
   width: 120%;
   background: var(--very-pale-red);
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #feature .item-wrapper .title-wrapper {
     background: none;
   }
@@ -391,7 +391,7 @@ nav .nav-list a:hover {
 #feature .item-wrapper .text-wrapper {
   margin-top: 1rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #feature .item-wrapper .text-wrapper {
     padding-left: calc(65px + 1rem);
   }
@@ -401,18 +401,51 @@ nav .nav-list a:hover {
   margin-top: var(--gap-lg);
   text-align: center;
 }
+@media screen and (min-width: 1000px) {
+  #testimonial .container {
+    width: 100%;
+  }
+}
+#testimonial .slider {
+  width: 100%;
+  height: 280px;
+  margin-top: var(--gap-md);
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: end;
+  gap: 0;
+  position: relative;
+  overflow-x: hidden;
+}
 #testimonial .item-wrapper {
-  margin-top: var(--gap-lg);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  left: 0;
+  transition: all 0.7s;
+}
+@media screen and (min-width: 1000px) {
+  #testimonial .item-wrapper {
+    gap: 2rem;
+  }
 }
 #testimonial .item-wrapper .item {
+  flex-shrink: 0;
+  width: 100%;
   padding: 2rem 1rem;
   padding-top: 3rem;
   background: var(--very-light-gray);
   position: relative;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #testimonial .item-wrapper .item {
-    width: 55%;
+    width: 60%;
+    height: 200px;
     padding: 3rem;
   }
 }
@@ -429,6 +462,24 @@ nav .nav-list a:hover {
 #testimonial .item-wrapper .item .text {
   margin-top: 1rem;
 }
+#testimonial .indicator-panel {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+#testimonial .indicator-panel .indicator {
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid var(--bright-red);
+  border-radius: 50%;
+  cursor: pointer;
+}
+#testimonial .indicator-panel .indicator.active {
+  background: var(--bright-red);
+}
 #testimonial button {
   margin-top: var(--gap-md);
 }
@@ -441,7 +492,7 @@ nav .nav-list a:hover {
   background-repeat: no-repeat;
   text-align: center;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #simplify {
     margin-top: var(--gap-lg);
   }
@@ -453,7 +504,7 @@ nav .nav-list a:hover {
   align-items: center;
   gap: 1rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #simplify .container {
     flex-direction: row;
     justify-content: space-between;
@@ -463,7 +514,7 @@ nav .nav-list a:hover {
   color: white;
   font-weight: 600;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #simplify .title {
     flex: 0 0 50%;
     font-size: var(--font-size-h2);
@@ -486,7 +537,7 @@ footer .container {
   align-items: center;
   gap: 3rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   footer .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 300px;
@@ -503,7 +554,7 @@ footer .container {
   align-items: center;
   gap: 2rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #subscription {
     grid-area: subscription;
     transform: scale(0.8);
@@ -560,7 +611,7 @@ footer .container {
   align-items: start;
   gap: 1rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #footer-link {
     grid-area: link;
   }
@@ -578,7 +629,7 @@ footer .container {
 #footer-link .link-wrapper a:hover {
   color: var(--bright-red);
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #footer-link .link-wrapper a {
     font-size: 0.9rem;
   }
@@ -592,7 +643,7 @@ footer .container {
   align-items: center;
   gap: 1rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #social-media {
     grid-area: media;
     transform: scale(0.7);
@@ -609,7 +660,7 @@ footer .container {
   color: var(--bright-red);
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #footer-logo {
     grid-area: logo;
   }
@@ -622,7 +673,7 @@ footer .container {
   color: var(--dark-grayish-blue);
   font-size: 0.8rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   #copyright {
     grid-area: copyright;
     justify-self: end;

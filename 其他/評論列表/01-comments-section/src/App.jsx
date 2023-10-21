@@ -5,7 +5,7 @@
  * 2. 切換模式
  *    - 點擊nav顯示模式後改變nav樣式
  *    - 根據點選的模式排序評論列表
- * 
+ *
  * 3. 評論刪除功能
  *    - 自己的評論才能刪除(條件判斷)
  *    - 刪除後評論消失不再顯示(透過id)
@@ -24,8 +24,8 @@ const list = [
       uname: '瓜哥',
     },
     content: '下面一位',
-    ctime: '10-10 21:43',
-    like: 11,
+    ctime: '2023-10-10 21:43',
+    like: 22,
   },
   {
     rpid: 13298,
@@ -35,8 +35,8 @@ const list = [
       uname: '周杰倫',
     },
     content: '哎唷！不錯喔',
-    ctime: '10-15 18:32',
-    like: 22,
+    ctime: '2023-10-15 18:32',
+    like: 11,
   },
   {
     rpid: 36275,
@@ -46,10 +46,10 @@ const list = [
       uname: '劉謙',
     },
     content: '接下來就是見證奇蹟的時刻！',
-    ctime: '10-18 09:26',
+    ctime: '2023-10-18 09:26',
     like: 33,
   },
-];
+].sort((a, b) => Date.parse(b.ctime) - Date.parse(a.ctime));
 
 // 使用者
 const user = {
@@ -71,13 +71,17 @@ function App() {
   // 切換模式
   function handleModeChange(mode) {
     setMode(mode);
+    if (mode === 'time')
+      setComments(
+        // 轉換成unix時間戳記再比較
+        comments.sort((a, b) => Date.parse(b.ctime) - Date.parse(a.ctime))
+      );
+    if (mode === 'hot') setComments(comments.sort((a, b) => b.like - a.like));
   }
 
   // 刪除功能
   function handleDel(id) {
-    const copiedList = JSON.parse(JSON.stringify(comments));
-    const modifiedList = copiedList.filter((item) => item.rpid !== id);
-    setComments(modifiedList);
+    setComments(comments.filter((comment) => comment.rpid !== id));
   }
 
   return (

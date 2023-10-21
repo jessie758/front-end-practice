@@ -187,9 +187,16 @@ img {
           gap: 1rem;
 
           .info {
-            flex: 0 0 4rem;
             font-size: 0.65rem;
             color: var(--gray);
+          }
+
+          .time {
+            flex: 0 0 6rem;
+          }
+
+          .like {
+            flex: 0 0 4rem;
           }
 
           .delete-btn {

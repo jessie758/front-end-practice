@@ -1,0 +1,77 @@
+#contact {
+  margin-top: var(--gap-lg);
+  padding: 3rem 0;
+  background: var(--soft-blue);
+  color: white;
+  text-align: center;
+
+  .description {
+    .sub-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+
+    .title {
+      margin-top: 0.9rem;
+      color: white;
+    }
+  }
+
+  form {
+    margin-top: 1.1rem;
+
+    .input-wrapper {
+      border-radius: var(--rounded-border-btn);
+
+      .wrapper {
+        position: relative;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border-radius: var(--rounded-border-btn);
+
+        &::placeholder {
+          color: var(--grayish-blue);
+          font-size: 0.8rem;
+        }
+      }
+
+      .err-icon {
+        display: none;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+
+      .err-msg {
+        display: none;
+        padding: 5px 8px;
+        font-size: 0.6rem;
+        font-style: italic;
+        text-align: start;
+      }
+
+      &.validated:has(input:invalid) {
+        background: var(--soft-red);
+
+        input:invalid {
+          box-shadow: inset 0 0 0 2px var(--soft-red);
+        }
+
+        .err-icon,
+        .err-msg {
+          display: block;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+}

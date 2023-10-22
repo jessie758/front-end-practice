@@ -1,0 +1,49 @@
+#faq {
+  margin-top: var(--gap-lg);
+
+  .container {
+    @include flex($direction: column, $gap: var(--gap-md));
+  }
+
+  .description {
+    @include flex($direction: column);
+  }
+
+  .faq-item {
+    padding: 1.1rem 0;
+    border-bottom: var(--separator);
+
+    .title-wrapper {
+      @include flex($justify: space-between, $gap: 0);
+
+      .title {
+        font-size: 0.8rem;
+        text-align: start;
+      }
+
+      .toggler {
+        cursor: pointer;
+      }
+
+      &:has(.toggler.open) {
+        .toggler {
+          // transform: rotate(180deg);
+          transform: scaleY(-1);
+          .icon {
+            stroke: var(--soft-red);
+          }
+        }
+
+        ~ .text {
+          display: block;
+        }
+      }
+    }
+
+    .text {
+      display: none;
+      margin-top: 1rem;
+      text-align: start;
+    }
+  }
+}

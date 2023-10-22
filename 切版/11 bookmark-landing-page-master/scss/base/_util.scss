@@ -1,0 +1,69 @@
+////////// variable //////////
+
+:root {
+  // color
+  --soft-red: hsl(0, 94%, 66%);
+  --soft-blue: hsl(231, 69%, 60%);
+  --very-dark-blue: hsl(229, 31%, 21%);
+  --very-dark-blue-opacity: hsla(229, 31%, 21%, 0.95);
+  --grayish-blue: hsl(229, 8%, 65%);
+  --light-gray: hsl(229, 8%, 85%);
+
+  // font
+  --font-rubik: 'Rubik', sans-serif;
+  --font-size-h1: 1.5rem;
+  --font-size-h2: 1.3rem;
+  --font-size-h3: 1.1rem;
+  --font-size-t: 0.8rem;
+
+  @include breakpoint(desktop) {
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 1.1rem;
+    --font-size-t: 1rem;
+  }
+
+  // border
+  --rounded-border-btn: 5px;
+  --rounded-border-card: 10px;
+  --separator: 1px solid var(--light-gray);
+
+  // shadow
+  --shadow-size: 0 10px 10px -5px;
+  --shadow-color-gray: rgba(0, 0, 0, 0.1);
+
+  // container
+  --container-width-mobile: 80%;
+  --container-width-desktop: 80%;
+
+  // gap
+  --gap-lg: 8rem;
+  --gap-md: 2rem;
+
+  @include breakpoint('desktop') {
+    --gap-lg: 8rem;
+  }
+}
+
+////////// function //////////
+
+@mixin btn(
+  $padding: 15px 13px,
+  $shadow-size: var(--shadow-size),
+  $shadow-color: var(--shadow-color-gray)
+) {
+  padding: $padding;
+  box-shadow: $shadow-size $shadow-color;
+  border-radius: var(--rounded-border-btn);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+@mixin flex($direction: row, $justify: center, $align: center, $gap: 0.8rem) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}

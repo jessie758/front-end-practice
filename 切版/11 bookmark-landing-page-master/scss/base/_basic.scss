@@ -1,0 +1,66 @@
+html {
+  font-family: var(--font-rubik);
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: var(--container-width-mobile);
+  margin: 0 auto;
+
+  @include breakpoint('desktop') {
+    width: var(--container-width-desktop);
+  }
+}
+
+img,
+svg {
+  display: block;
+  width: 100%;
+}
+
+button {
+  @include btn();
+  cursor: pointer;
+
+  &.red {
+    background-color: var(--soft-red);
+  }
+  &.blue {
+    background: var(--soft-blue);
+  }
+  &.gray {
+    color: var(--grayish-blue);
+  }
+  &.white-border {
+    box-shadow: inset 0 0 0 2.5px white;
+    background: transparent;
+  }
+  &.no-shadow {
+    box-shadow: 0 0;
+  }
+}
+
+.title {
+  color: var(--very-dark-blue);
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+
+  &.h1 {
+    font-size: var(--font-size-h1);
+  }
+  &.h2 {
+    font-size: var(--font-size-h2);
+  }
+  &.h3 {
+    font-size: var(--font-size-h3);
+  }
+}
+
+.text {
+  color: var(--grayish-blue);
+  font-size: var(--font-size-t);
+  line-height: 1.5;
+  text-align: center;
+}

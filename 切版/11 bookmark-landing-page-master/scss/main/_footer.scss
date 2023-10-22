@@ -1,0 +1,23 @@
+footer {
+  padding: 2.5rem 0;
+  background: var(--very-dark-blue);
+
+  .container {
+    @include flex($direction: column, $gap: 2.5rem);
+  }
+
+  .link-wrapper {
+    @include flex($direction: column, $gap: 1.5rem);
+
+    a {
+      color: var(--light-gray);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+  }
+
+  .social-media-wrapper {
+    @include flex($gap: 2rem);
+  }
+}
